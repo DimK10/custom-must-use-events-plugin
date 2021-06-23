@@ -1,6 +1,7 @@
 <?php
 function university_post_types()
 {
+    // Event Post Type
     // public => makes to post type visible to editors and viewers
     // show_in_rest is for using the modern editor, but, if there is no supports option, or no editor value in supports
     // then wordpress falls back to the old editor
@@ -18,6 +19,23 @@ function university_post_types()
             'singular_name' => 'Event'
         ),
         'menu_icon' => 'dashicons-calendar'
+    ));
+
+    // Program Post Type
+    register_post_type('program', array(
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor'),
+        'rewrite' => array('slug' => 'programs'),
+        'has_archive' => true,
+        'public' => true,
+        'labels' => array(
+            'name' => 'Programs',
+            'add_new_item' => 'Add New Program',
+            'edit_item' => 'Edit Program',
+            'all_items' => 'All Programs',
+            'singular_name' => 'Program'
+        ),
+        'menu_icon' => 'dashicons-awards'
     ));
 }
 
