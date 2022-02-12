@@ -1,6 +1,23 @@
 <?php
 function university_post_types()
 {
+    // Campus Post Type
+    register_post_type('campus', array(
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'excerpt'),
+        'rewrite' => array('slug' => 'campuses'),
+        'has_archive' => true,
+        'public' => true,
+        'labels' => array(
+            'name' => 'Campuses',
+            'add_new_item' => 'Add New Campus',
+            'edit_item' => 'Edit Campus',
+            'all_items' => 'All Campuses',
+            'singular_name' => 'Campus'
+        ),
+        'menu_icon' => 'dashicons-location-alt'
+    ));
+
     // Event Post Type
     // public => makes to post type visible to editors and viewers
     // show_in_rest is for using the modern editor, but, if there is no supports option, or no editor value in supports
